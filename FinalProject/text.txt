@@ -1,0 +1,31 @@
+<form id="loginForm" method="POST" action="" onsubmit="return validateForm()">
+        
+        <h2>Login</h2>
+
+        <div id="message_container">
+            <?php
+            if (isset($_GET["error"])) { ?>
+                <p id="error_paragraph" class="error"> <?php echo $_GET["error"]; ?> </p>
+            <?php } elseif (isset($_GET["success"])) { ?>
+                <p id="success_paragraph" class="success"> <?php echo $_GET["success"]; ?> </p>
+            <?php }
+            ?>
+        </div>
+        <div class="mb-3 mt-3">
+        <label  for="email">Email:</label><br>
+        <?php
+        if (isset($_GET["email"])) { ?>
+            <input type="email" id="email" name="email" placeholder="Email" value="<?php echo $_GET["email"]; ?>"><br>
+        <?php
+        } else { ?>
+            <input type="email" id="email" name="email" placeholder="Email"><br>
+        <?php
+        }
+        ?>
+        </div>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" placeholder="Password"><br>
+
+        <input id="submit_btn" type="submit" value="Login">
+        <p>Create an account? <a href="register.php">Register</a></p>
+    </form>
